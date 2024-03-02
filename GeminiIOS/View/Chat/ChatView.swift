@@ -9,17 +9,16 @@ import SwiftUI
 import GoogleGenerativeAI
 
 struct ChatView: View {
-    let model = GenerativeModel(name: "gemini-pro", apiKey: "AIzaSyAM2T3tynSdkPNaaG2gsFHIYnh2H3oCosQ")
+    let model = GenerativeModel(name: "gemini-pro", apiKey: "YOUR_API_KEY")
     @State var output: String = ""
-    @State var input: String = "Ask anything."
+    @State var input: String = ""
     var body: some View {
         VStack{
                     ScrollView{
                         Text(output)
                             .padding(.horizontal)
                         Text(input)
-                            .background(Color.teal)
-                            .padding(.trailing, 20)
+                            .fontWeight(.bold)
                     }
                     HStack{
                         TextField("Ask me anything", text: $input)
@@ -42,6 +41,7 @@ struct ChatView: View {
                             Image(systemName: "paperplane.fill")
                                 .font(.title)
                         })
+                        .padding()
                     }
                 }
     }
